@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SIGNIUM — App Android de reconocimiento de lenguaje de señas en tiempo real. Aprende y comunica gestos del lenguaje de señas español con IA en tu dispositivo." />
+  <meta property="og:title"       content="SIGNIUM — Donde las manos hablan" />
+  <meta property="og:description" content="Reconocimiento de lenguaje de señas en tiempo real con IA. Sin servidores, todo en tu dispositivo." />
+  <meta property="og:image"       content="images/signum.png" />
+  <title>SIGNIUM — Donde las manos hablan y el corazón escucha</title>
+  <link rel="icon" type="image/png" href="images/signum.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body data-active-lang="es">
+
+<!-- ══════════════════════════════════════════════════════
+     NAV
+     ══════════════════════════════════════════════════════ -->
+<nav aria-label="Navegación principal">
+  <a href="#" class="nav-logo" aria-label="SIGNIUM inicio">
+    <img src="images/signum_negro.png" alt="SIGNIUM" />
+  </a>
+
+  <ul class="nav-links" role="list">
+    <li>
+      <a data-lang="es" href="#how">Cómo funciona</a>
+      <a data-lang="en" href="#how">How it works</a>
+      <a data-lang="ca" href="#how">Com funciona</a>
+    </li>
+    <li>
+      <a data-lang="es" href="#gestures">Gestos</a>
+      <a data-lang="en" href="#gestures">Gestures</a>
+      <a data-lang="ca" href="#gestures">Gestos</a>
+    </li>
+    <li>
+      <a data-lang="es" href="#community">Comunidad</a>
+      <a data-lang="en" href="#community">Community</a>
+      <a data-lang="ca" href="#community">Comunitat</a>
+    </li>
+    <li>
+      <a data-lang="es" href="#team">Equipo</a>
+      <a data-lang="en" href="#team">Team</a>
+      <a data-lang="ca" href="#team">Equip</a>
+    </li>
+    <li>
+      <a data-lang="es" href="#download" class="nav-cta">Descargar</a>
+      <a data-lang="en" href="#download" class="nav-cta">Download</a>
+      <a data-lang="ca" href="#download" class="nav-cta">Descarregar</a>
+    </li>
+  </ul>
+
+  <div class="nav-right">
+    <div class="lang-switcher" role="group" aria-label="Selector de idioma">
+      <button class="lang-btn active" data-lang="es" onclick="setLang('es')" aria-pressed="true">ES</button>
+      <button class="lang-btn"        data-lang="en" onclick="setLang('en')" aria-pressed="false">EN</button>
+      <button class="lang-btn"        data-lang="ca" onclick="setLang('ca')" aria-pressed="false">CA</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════════════════
+     HERO
+     ══════════════════════════════════════════════════════ -->
+<section class="hero" aria-labelledby="hero-title">
+
+  <!-- Columna texto -->
+  <div class="hero-text">
+    <div class="hero-badge" aria-label="Reconocimiento en tiempo real">
+      <span class="dot" aria-hidden="true"></span>
+      <span data-lang="es">Reconocimiento en tiempo real</span>
+      <span data-lang="en">Real-time recognition</span>
+      <span data-lang="ca">Reconeixement en temps real</span>
+    </div>
+
+    <h1 id="hero-title" class="hero-title">
+      <span data-lang="es">Donde las <em>manos hablan</em> y el corazón <em>escucha</em></span>
+      <span data-lang="en">Where <em>hands speak</em> and hearts <em>listen</em></span>
+      <span data-lang="ca">On les <em>mans parlen</em> i el cor <em>escolta</em></span>
+    </h1>
+
+    <p class="hero-sub">
+      <span data-lang="es">Una app Android que traduce el lenguaje de señas en tiempo real usando IA en tu dispositivo. Sin servidores, sin latencia, sin límites.</span>
+      <span data-lang="en">An Android app that translates sign language in real time using AI on your device. No servers, no latency, no limits.</span>
+      <span data-lang="ca">Una app Android que tradueix el llenguatge de signes en temps real fent servir IA al teu dispositiu. Sense servidors, sense latència, sense límits.</span>
+    </p>
+
+    <div class="hero-actions">
+      <a href="#download" class="btn-primary">
+        <span>↓</span>
+        <span data-lang="es">Descargar la app</span>
+        <span data-lang="en">Download the app</span>
+        <span data-lang="ca">Descarregar l'app</span>
+      </a>
+      <a href="#how" class="btn-secondary">
+        <span data-lang="es">Ver cómo funciona</span>
+        <span data-lang="en">See how it works</span>
+        <span data-lang="ca">Veure com funciona</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Columna visual — mockup de móvil -->
+  <div class="hero-visual" aria-hidden="true">
+
+    <!-- Tarjeta flotante izquierda -->
+    <div class="float-card float-card-left">
+      <div class="fc-label">Confianza</div>
+      <div class="fc-value fc-accent">97%</div>
+    </div>
+
+    <div class="phone-wrap">
+      <div class="phone-frame" role="img" aria-label="Mockup de la app SIGNIUM detectando el gesto HOLA">
+        <div class="phone-screen">
+          <div class="phone-notch"></div>
+          <div class="phone-scan-line"></div>
+
+          <div class="cam-rings">
+            <div class="cam-ring"></div>
+            <div class="cam-ring"></div>
+            <div class="cam-ring"></div>
+            <div class="cam-emoji">🤟</div>
+          </div>
+
+          <div class="phone-chip">HOLA</div>
+          <div class="phone-conf">97% confidence · MediaPipe</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tarjeta flotante derecha -->
+    <div class="float-card float-card-right">
+      <div class="fc-label">Procesado</div>
+      <div class="fc-value">En dispositivo 📱</div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     FOTO CON CITA
+     ══════════════════════════════════════════════════════ -->
+<div class="photo-section reveal">
+  <img src="images/holiwis.png" alt="Dos personas comunicándose con lenguaje de señas" loading="lazy" />
+  <div class="photo-overlay">
+    <div class="photo-text">
+      <blockquote>
+        <span data-lang="es">"El silencio no es ausencia de comunicación — es una invitación a escuchar de otra manera."</span>
+        <span data-lang="en">"Silence is not an absence of communication — it's an invitation to listen differently."</span>
+        <span data-lang="ca">"El silenci no és absència de comunicació — és una invitació a escoltar d'una altra manera."</span>
+      </blockquote>
+      <p>
+        <span data-lang="es">SIGNIUM nace para romper barreras de comunicación.</span>
+        <span data-lang="en">SIGNIUM was born to break communication barriers.</span>
+        <span data-lang="ca">SIGNIUM neix per trencar barreres de comunicació.</span>
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     STATS BAR
+     ══════════════════════════════════════════════════════ -->
+<section class="stats-bar" aria-label="Estadísticas de SIGNIUM">
+  <div class="stat-item">
+    <div class="stat-number" data-value="8" data-suffix="+">8+</div>
+    <div class="stat-label">
+      <span data-lang="es">Gestos disponibles</span>
+      <span data-lang="en">Available gestures</span>
+      <span data-lang="ca">Gestos disponibles</span>
+    </div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number" data-value="97" data-suffix="%">97%</div>
+    <div class="stat-label">
+      <span data-lang="es">Precisión del modelo</span>
+      <span data-lang="en">Model accuracy</span>
+      <span data-lang="ca">Precisió del model</span>
+    </div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number" data-value="0" data-suffix="ms">0ms</div>
+    <div class="stat-label">
+      <span data-lang="es">Latencia — todo en local</span>
+      <span data-lang="en">Latency — fully on-device</span>
+      <span data-lang="ca">Latència — tot en local</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     CÓMO FUNCIONA
+     ══════════════════════════════════════════════════════ -->
+<section class="section" id="how" aria-labelledby="how-title">
+  <div class="section-inner">
+
+    <div class="section-header reveal">
+      <div class="tag-pill">
+        <span data-lang="es">📡 Tecnología</span>
+        <span data-lang="en">📡 Technology</span>
+        <span data-lang="ca">📡 Tecnologia</span>
+      </div>
+      <h2 id="how-title" class="section-title">
+        <span data-lang="es">Así funciona <em>SIGNIUM</em></span>
+        <span data-lang="en">How <em>SIGNIUM</em> works</span>
+        <span data-lang="ca">Així funciona <em>SIGNIUM</em></span>
+      </h2>
+      <p class="section-sub">
+        <span data-lang="es">Cuatro pasos, milisegundos de procesado, cero conexión a internet necesaria.</span>
+        <span data-lang="en">Four steps, milliseconds of processing, zero internet connection needed.</span>
+        <span data-lang="ca">Quatre passos, mil·lisegons de processament, zero connexió a internet necessària.</span>
+      </p>
+    </div>
+
+    <div class="steps-grid">
+
+      <article class="step-card">
+        <div class="step-num">01</div>
+        <span class="step-icon" aria-hidden="true">📱</span>
+        <h3 class="step-title">
+          <span data-lang="es">Abre la cámara</span>
+          <span data-lang="en">Open the camera</span>
+          <span data-lang="ca">Obre la càmera</span>
+        </h3>
+        <p class="step-desc">
+          <span data-lang="es">Apunta la cámara de tu móvil hacia tu mano. SIGNIUM detecta automáticamente cuándo hay un gesto.</span>
+          <span data-lang="en">Point your phone's camera at your hand. SIGNIUM automatically detects when a gesture is present.</span>
+          <span data-lang="ca">Apunta la càmera del teu mòbil cap a la teva mà. SIGNIUM detecta automàticament quan hi ha un gest.</span>
+        </p>
+      </article>
+
+      <article class="step-card">
+        <div class="step-num">02</div>
+        <span class="step-icon" aria-hidden="true">🤚</span>
+        <h3 class="step-title">
+          <span data-lang="es">Haz el gesto</span>
+          <span data-lang="en">Make the gesture</span>
+          <span data-lang="ca">Fes el gest</span>
+        </h3>
+        <p class="step-desc">
+          <span data-lang="es">MediaPipe detecta 21 puntos clave en tu mano con precisión milimétrica, frame a frame.</span>
+          <span data-lang="en">MediaPipe detects 21 key points on your hand with millimeter precision, frame by frame.</span>
+          <span data-lang="ca">MediaPipe detecta 21 punts clau a la teva mà amb precisió mil·limètrica, frame a frame.</span>
+        </p>
+      </article>
+
+      <article class="step-card">
+        <div class="step-num">03</div>
+        <span class="step-icon" aria-hidden="true">🧠</span>
+        <h3 class="step-title">
+          <span data-lang="es">La IA lo clasifica</span>
+          <span data-lang="en">AI classifies it</span>
+          <span data-lang="ca">La IA ho classifica</span>
+        </h3>
+        <p class="step-desc">
+          <span data-lang="es">Nuestro modelo TFLite analiza 30 fotogramas de secuencia para identificar el gesto con alta confianza.</span>
+          <span data-lang="en">Our TFLite model analyzes 30 sequence frames to identify the gesture with high confidence.</span>
+          <span data-lang="ca">El nostre model TFLite analitza 30 fotogrames de seqüència per identificar el gest amb alta confiança.</span>
+        </p>
+      </article>
+
+      <article class="step-card">
+        <div class="step-num">04</div>
+        <span class="step-icon" aria-hidden="true">🔊</span>
+        <h3 class="step-title">
+          <span data-lang="es">Voz y texto</span>
+          <span data-lang="en">Voice and text</span>
+          <span data-lang="ca">Veu i text</span>
+        </h3>
+        <p class="step-desc">
+          <span data-lang="es">El gesto se muestra en pantalla y se lee en voz alta en español. Comunicación bidireccional inmediata.</span>
+          <span data-lang="en">The gesture appears on screen and is read aloud in Spanish. Immediate bidirectional communication.</span>
+          <span data-lang="ca">El gest apareix en pantalla i es llegeix en veu alta en espanyol. Comunicació bidireccional immediata.</span>
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     GESTOS DISPONIBLES
+     ══════════════════════════════════════════════════════ -->
+<section class="section gestures-section" id="gestures" aria-labelledby="gestures-title">
+  <div class="section-inner">
+
+    <div class="section-header reveal">
+      <div class="tag-pill">
+        <span data-lang="es">👐 Gestos</span>
+        <span data-lang="en">👐 Gestures</span>
+        <span data-lang="ca">👐 Gestos</span>
+      </div>
+      <h2 id="gestures-title" class="section-title">
+        <span data-lang="es">Gestos <em>disponibles</em></span>
+        <span data-lang="en"><em>Available</em> gestures</span>
+        <span data-lang="ca">Gestos <em>disponibles</em></span>
+      </h2>
+      <p class="section-sub">
+        <span data-lang="es">Cada gesto ha sido entrenado con miles de ejemplos. El vocabulario crece con la comunidad.</span>
+        <span data-lang="en">Each gesture has been trained with thousands of examples. The vocabulary grows with the community.</span>
+        <span data-lang="ca">Cada gest ha estat entrenat amb milers d'exemples. El vocabulari creix amb la comunitat.</span>
+      </p>
+    </div>
+
+    <div class="gestures-grid" role="list">
+
+      <div class="gesture-chip" role="listitem">
+        <span class="gesture-emoji" aria-hidden="true">👋</span>
+        <span class="gesture-name">
+          <span data-lang="es">Hola</span>
+          <span data-lang="en">Hello</span>
+          <span data-lang="ca">Hola</span>
+        </span>
+        <span class="gesture-badge">
+          <span data-lang="es">1 mano</span>
+          <span data-lang="en">1 hand</span>
+          <span data-lang="ca">1 mà</span>
+        </span>
+      </div>
+
+      <div class="gesture-chip" role="listitem">
+        <span class="gesture-emoji" aria-hidden="true">🙏</span>
+        <span class="gesture-name">
+          <span data-lang="es">Gracias</span>
+          <span data-lang="en">Thank you</span>
+          <span data-lang="ca">Gràcies</span>
+        </span>
+        <span class="gesture-badge">
+          <span data-lang="es">2 manos</span>
+          <span data-lang="en">2 hands</span>
+          <span data-lang="ca">2 mans</span>
+        </span>
+      </div>
+
+      <div class="gesture-chip" role="listitem">
+        <span class="gesture-emoji" aria-hidden="true">🍽️</span>
+        <span class="gesture-name">
+          <span data-lang="es">Comer</span>
+          <span data-lang="en">Eat</span>
+          <span data-lang="ca">Menjar</span>
+        </span>
+        <span class="gesture-badge">
+          <span data-lang="es">1 mano</span>
+          <span data-lang="en">1 hand</span>
+          <span data-lang="ca">1 mà</span>
+        </span>
+      </div>
+
+      <div class="gesture-chip" role="listitem">
+        <span class="gesture-emoji" aria-hidden="true">😴</span>
+        <span class="gesture-name">
+          <span data-lang="es">Dormir</span>
+          <span data-lang="en">Sleep</span>
+          <span data-lang="ca">Dormir</span>
+        </span>
+        <span class="gesture-badge">
+          <span data-lang="es">1 mano</span>
+          <span data-lang="en">1 hand</span>
+          <span data-lang="ca">1 mà</span>
+        </span>
+      </div>
+
+      <div class="gesture-chip" role="listitem">
+        <span class="gesture-emoji" aria-hidden="true">🤤</span>
+        <span class="gesture-name">
+          <span data-lang="es">Hambre</span>
+          <span data-lang="en">Hungry</span>
+          <span data-lang="ca">Gana</span>
+        </span>
+        <span class="gesture-badge">
+          <span data-lang="es">1 mano</span>
+          <span data-lang="en">1 hand</span>
+          <span data-lang="ca">1 mà</span>
+        </span>
+      </div>
+
+      <div class="gesture-chip" role="listitem">
+        <span class="gesture-emoji" aria-hidden="true">👂</span>
+        <span class="gesture-name">
+          <span data-lang="es">Escuchar</span>
+          <span data-lang="en">Listen</span>
+          <span data-lang="ca">Escoltar</span>
+        </span>
+        <span class="gesture-badge">
+          <span data-lang="es">1 mano</span>
+          <span data-lang="en">1 hand</span>
+          <span data-lang="ca">1 mà</span>
+        </span>
+      </div>
+
+      <div class="gesture-chip" role="listitem">
+        <span class="gesture-emoji" aria-hidden="true">😰</span>
+        <span class="gesture-name">
+          <span data-lang="es">Nervioso</span>
+          <span data-lang="en">Nervous</span>
+          <span data-lang="ca">Nerviós</span>
+        </span>
+        <span class="gesture-badge">
+          <span data-lang="es">1 mano</span>
+          <span data-lang="en">1 hand</span>
+          <span data-lang="ca">1 mà</span>
+        </span>
+      </div>
+
+      <div class="gesture-chip" role="listitem">
+        <span class="gesture-emoji" aria-hidden="true">🤔</span>
+        <span class="gesture-name">
+          <span data-lang="es">Olvidar</span>
+          <span data-lang="en">Forget</span>
+          <span data-lang="ca">Oblidar</span>
+        </span>
+        <span class="gesture-badge">
+          <span data-lang="es">2 manos</span>
+          <span data-lang="en">2 hands</span>
+          <span data-lang="ca">2 mans</span>
+        </span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     COMUNIDAD / MISIÓN
+     ══════════════════════════════════════════════════════ -->
+<section class="section community-section" id="community" aria-labelledby="community-title">
+  <div class="section-inner">
+
+    <div class="mission-grid">
+
+      <!-- Imagen -->
+      <div class="mission-img-wrap reveal">
+        <img src="images/holiwis.png" alt="Personas practicando lenguaje de señas" loading="lazy" />
+        <div class="mission-img-badge">
+          <span>🤟</span>
+          <div>
+            <strong>
+              <span data-lang="es">Comunidad activa</span>
+              <span data-lang="en">Active community</span>
+              <span data-lang="ca">Comunitat activa</span>
+            </strong>
+            <br>
+            <small style="color:#6B8299;">
+              <span data-lang="es">Creciendo cada día</span>
+              <span data-lang="en">Growing every day</span>
+              <span data-lang="ca">Creixent cada dia</span>
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contenido -->
+      <div class="mission-content reveal">
+        <div class="tag-pill">
+          <span data-lang="es">🌍 Nuestra misión</span>
+          <span data-lang="en">🌍 Our mission</span>
+          <span data-lang="ca">🌍 La nostra missió</span>
+        </div>
+
+        <h2 id="community-title" class="mission-title">
+          <span data-lang="es">Construimos una comunidad donde <em>nadie se quede sin voz</em></span>
+          <span data-lang="en">We're building a community where <em>no one is left without a voice</em></span>
+          <span data-lang="ca">Construïm una comunitat on <em>ningú es quedi sense veu</em></span>
+        </h2>
+
+        <p class="mission-text">
+          <span data-lang="es">SIGNIUM no es solo una app — es un punto de encuentro. Nació para acercar a personas oyentes y sordas, para que aprender lenguaje de señas sea accesible, motivador y social. Cada gesto nuevo que añadimos lo entrenamos con la comunidad.</span>
+          <span data-lang="en">SIGNIUM is not just an app — it's a meeting point. It was born to bring together hearing and deaf people, to make learning sign language accessible, motivating, and social. Every new gesture we add is trained with the community.</span>
+          <span data-lang="ca">SIGNIUM no és només una app — és un punt de trobada. Va néixer per apropar persones oients i sordes, perquè aprendre el llenguatge de signes sigui accessible, motivador i social. Cada gest nou que afegim l'entrenem amb la comunitat.</span>
+        </p>
+
+        <div class="mission-features">
+          <div class="mission-feat">
+            <div class="mission-feat-icon">
+              <img src="images/ic_actividad.png" alt="" width="20" height="20" />
+            </div>
+            <div class="mission-feat-text">
+              <strong>
+                <span data-lang="es">Aprende activamente</span>
+                <span data-lang="en">Learn actively</span>
+                <span data-lang="ca">Aprèn activament</span>
+              </strong>
+              <span>
+                <span data-lang="es">Practica con feedback en tiempo real</span>
+                <span data-lang="en">Practice with real-time feedback</span>
+                <span data-lang="ca">Practica amb feedback en temps real</span>
+              </span>
+            </div>
+          </div>
+          <div class="mission-feat">
+            <div class="mission-feat-icon">
+              <img src="images/ic_seguridad.png" alt="" width="20" height="20" />
+            </div>
+            <div class="mission-feat-text">
+              <strong>
+                <span data-lang="es">Privacidad total</span>
+                <span data-lang="en">Total privacy</span>
+                <span data-lang="ca">Privacitat total</span>
+              </strong>
+              <span>
+                <span data-lang="es">Todo corre en tu dispositivo</span>
+                <span data-lang="en">Everything runs on your device</span>
+                <span data-lang="ca">Tot corre al teu dispositiu</span>
+              </span>
+            </div>
+          </div>
+          <div class="mission-feat">
+            <div class="mission-feat-icon">🌱</div>
+            <div class="mission-feat-text">
+              <strong>
+                <span data-lang="es">Vocabulario creciente</span>
+                <span data-lang="en">Growing vocabulary</span>
+                <span data-lang="ca">Vocabulari creixent</span>
+              </strong>
+              <span>
+                <span data-lang="es">Nuevos gestos con cada versión</span>
+                <span data-lang="en">New gestures with every release</span>
+                <span data-lang="ca">Nous gestos amb cada versió</span>
+              </span>
+            </div>
+          </div>
+          <div class="mission-feat">
+            <div class="mission-feat-icon">🤝</div>
+            <div class="mission-feat-text">
+              <strong>
+                <span data-lang="es">Código abierto</span>
+                <span data-lang="en">Open source</span>
+                <span data-lang="ca">Codi obert</span>
+              </strong>
+              <span>
+                <span data-lang="es">Transparente y colaborativo</span>
+                <span data-lang="en">Transparent and collaborative</span>
+                <span data-lang="ca">Transparent i col·laboratiu</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     EQUIPO
+     ══════════════════════════════════════════════════════ -->
+<section class="section team-section" id="team" aria-labelledby="team-title">
+  <div class="section-inner">
+
+    <div class="section-header reveal">
+      <div class="tag-pill">
+        <span data-lang="es">👥 Equipo</span>
+        <span data-lang="en">👥 Team</span>
+        <span data-lang="ca">👥 Equip</span>
+      </div>
+      <h2 id="team-title" class="section-title">
+        <span data-lang="es">Las personas detrás de <em>SIGNIUM</em></span>
+        <span data-lang="en">The people behind <em>SIGNIUM</em></span>
+        <span data-lang="ca">Les persones darrere de <em>SIGNIUM</em></span>
+      </h2>
+      <p class="section-sub">
+        <span data-lang="es">Un proyecto con propósito, construido con pasión por la accesibilidad.</span>
+        <span data-lang="en">A project with purpose, built with passion for accessibility.</span>
+        <span data-lang="ca">Un projecte amb propòsit, construït amb passió per l'accessibilitat.</span>
+      </p>
+    </div>
+
+    <div class="team-grid">
+
+      <article class="team-card">
+        <div class="team-avatar" aria-hidden="true">S</div>
+        <h3 class="team-name">Santiago</h3>
+        <div class="team-role">
+          <span data-lang="es">Fundador &amp; Desarrollador</span>
+          <span data-lang="en">Founder &amp; Developer</span>
+          <span data-lang="ca">Fundador &amp; Desenvolupador</span>
+        </div>
+        <p class="team-bio">
+          <span data-lang="es">Desarrollador Android apasionado por la IA y la accesibilidad. Diseñó y entrenó el modelo de reconocimiento de gestos desde cero.</span>
+          <span data-lang="en">Android developer passionate about AI and accessibility. Designed and trained the gesture recognition model from scratch.</span>
+          <span data-lang="ca">Desenvolupador Android apassionat per la IA i l'accessibilitat. Va dissenyar i entrenar el model de reconeixement de gestos des de zero.</span>
+        </p>
+      </article>
+
+      <article class="team-card">
+        <div class="team-avatar" aria-hidden="true" style="font-size:28px;">🤟</div>
+        <h3 class="team-name">
+          <span data-lang="es">Misión SIGNIUM</span>
+          <span data-lang="en">SIGNIUM Mission</span>
+          <span data-lang="ca">Missió SIGNIUM</span>
+        </h3>
+        <div class="team-role">
+          <span data-lang="es">Accesibilidad Universal</span>
+          <span data-lang="en">Universal Accessibility</span>
+          <span data-lang="ca">Accessibilitat Universal</span>
+        </div>
+        <p class="team-bio">
+          <span data-lang="es">Hacer el lenguaje de señas accesible a cualquier persona, independientemente de sus conocimientos. Derribar barreras de comunicación con tecnología.</span>
+          <span data-lang="en">Making sign language accessible to anyone, regardless of prior knowledge. Breaking down communication barriers with technology.</span>
+          <span data-lang="ca">Fer el llenguatge de signes accessible a qualsevol persona, independentment dels seus coneixements. Enderrocar barreres de comunicació amb tecnologia.</span>
+        </p>
+      </article>
+
+      <article class="team-card">
+        <div class="team-avatar" aria-hidden="true" style="font-size:28px;">📡</div>
+        <h3 class="team-name">Tech Stack</h3>
+        <div class="team-role">
+          <span data-lang="es">Tecnología de vanguardia</span>
+          <span data-lang="en">Cutting-edge technology</span>
+          <span data-lang="ca">Tecnologia d'avantguarda</span>
+        </div>
+        <p class="team-bio">
+          <span data-lang="es">Construido sobre las mejores herramientas del sector.</span>
+          <span data-lang="en">Built on the best tools in the industry.</span>
+          <span data-lang="ca">Construït sobre les millors eines del sector.</span>
+        </p>
+        <div class="team-tech-stack">
+          <span class="tech-tag">Kotlin</span>
+          <span class="tech-tag">Jetpack Compose</span>
+          <span class="tech-tag">MediaPipe</span>
+          <span class="tech-tag">TensorFlow Lite</span>
+          <span class="tech-tag">Firebase</span>
+          <span class="tech-tag">Railway</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     CTA DESCARGA
+     ══════════════════════════════════════════════════════ -->
+<section class="cta-section" id="download" aria-labelledby="cta-title">
+  <div class="cta-inner reveal">
+    <h2 id="cta-title" class="cta-title">
+      <span data-lang="es">Empieza a hablar con <em>tus manos</em> hoy</span>
+      <span data-lang="en">Start speaking with <em>your hands</em> today</span>
+      <span data-lang="ca">Comença a parlar amb <em>les teves mans</em> avui</span>
+    </h2>
+    <p class="cta-sub">
+      <span data-lang="es">Descarga SIGNIUM gratis para Android. Sin suscripciones, sin datos en la nube, sin límites.</span>
+      <span data-lang="en">Download SIGNIUM free for Android. No subscriptions, no cloud data, no limits.</span>
+      <span data-lang="ca">Descarrega SIGNIUM gratuïtament per a Android. Sense subscripcions, sense dades al núvol, sense límits.</span>
+    </p>
+    <div class="cta-actions">
+      <a href="mailto:santiago25goam@gmail.com?subject=SIGNIUM%20Download" class="btn-white">
+        <span>🤖</span>
+        <span data-lang="es">Descargar para Android</span>
+        <span data-lang="en">Download for Android</span>
+        <span data-lang="ca">Descarregar per a Android</span>
+      </a>
+      <a href="mailto:santiago25goam@gmail.com" class="btn-outline-white">
+        <span>✉️</span>
+        <span data-lang="es">Contactar</span>
+        <span data-lang="en">Contact us</span>
+        <span data-lang="ca">Contactar</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     FOOTER
+     ══════════════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-logo">
+    <img src="images/signum.png" alt="SIGNIUM" />
+  </div>
+  <div class="footer-info">
+    <span data-lang="es">© 2025 SIGNIUM · Donde las manos hablan y el corazón escucha</span>
+    <span data-lang="en">© 2025 SIGNIUM · Where hands speak and hearts listen</span>
+    <span data-lang="ca">© 2025 SIGNIUM · On les mans parlen i el cor escolta</span>
+  </div>
+  <div class="footer-email">
+    <a href="mailto:santiago25goam@gmail.com">santiago25goam@gmail.com</a>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="js/main.js"></script>
+
+</body>
+</html>
